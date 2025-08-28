@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillShare - Connect & Learn</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/pages.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Navigation Bar -->
+        <nav id="nav-bar" class="nav-bar hidden">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h2>SkillShare</h2>
+                </div>
+                <div class="nav-links">
+                    <a href="#" data-page="home" class="nav-link active">Home</a>
+                    <a href="#" data-page="my-profile" class="nav-link">My Profile</a>
+                    <a href="#" data-page="dashboard" class="nav-link">Dashboard</a>
+                    <button id="logout-btn" class="btn btn-outline">Logout</button>
+                </div>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Login Page -->
+            <div id="login-page" class="page active">
+                <div class="auth-container">
+                    <div class="auth-card">
+                        <div class="auth-header">
+                            <div class="auth-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h1>Welcome Back</h1>
+                            <p>Sign in to your SkillShare account</p>
+                        </div>
+                        <form id="login-form">
+                            <div class="form-group">
+                                <label for="login-email">Email</label>
+                                <input type="email" id="login-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="login-password">Password</label>
+                                <input type="password" id="login-password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+                        </form>
+                        <div class="auth-switch">
+                            <p>Don't have an account? <a href="#" id="show-signup">Sign up</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signup Page -->
+            <div id="signup-page" class="page">
+                <div class="auth-container">
+                    <div class="auth-card">
+                        <div class="auth-header">
+                            <div class="auth-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <h1>Join SkillShare</h1>
+                            <p>Create your account to start learning</p>
+                        </div>
+                        <form id="signup-form">
+                            <div class="form-group">
+                                <label for="signup-name">Full Name</label>
+                                <input type="text" id="signup-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-email">Email</label>
+                                <input type="email" id="signup-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="signup-password">Password</label>
+                                <input type="password" id="signup-password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                        </form>
+                        <div class="auth-switch">
+                            <p>Already have an account? <a href="#" id="show-login">Sign in</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Home Page -->
+            <div id="home-page" class="page">
+                <div class="container">
+                    <div class="page-header">
+                        <h1>Discover Skilled People</h1>
+                        <p>Connect with talented individuals and learn from the best</p>
+                    </div>
+                    <div id="users-grid" class="users-grid">
+                        <!-- Users will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile View Page -->
+            <div id="profile-view-page" class="page">
+                <div class="container">
+                    <div class="profile-header">
+                        <button id="back-to-home" class="btn btn-outline">← Back</button>
+                        <div id="profile-info" class="profile-info">
+                            <!-- Profile info will be loaded here -->
+                        </div>
+                    </div>
+                    <div class="profile-content">
+                        <div class="skills-section">
+                            <h3>Skills</h3>
+                            <div id="profile-skills" class="skills-list">
+                                <!-- Skills will be loaded here -->
+                            </div>
+                        </div>
+                        <div class="rating-section">
+                            <h3>Rate this user</h3>
+                            <div id="rating-stars" class="rating-stars">
+                                <span class="star" data-rating="1">★</span>
+                                <span class="star" data-rating="2">★</span>
+                                <span class="star" data-rating="3">★</span>
+                                <span class="star" data-rating="4">★</span>
+                                <span class="star" data-rating="5">★</span>
+                            </div>
+                        </div>
+                        <div id="previous-learners-section" class="previous-learners-section">
+                            <!-- Previous learners will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- My Profile Page -->
+            <div id="my-profile-page" class="page">
+                <div class="container">
+                    <div class="page-header">
+                        <h1>My Profile</h1>
+                        <p>Manage your skills and learn requests</p>
+                    </div>
+                    <div class="profile-sections">
+                        <div class="section">
+                            <h3>My Skills</h3>
+                            <form id="add-skill-form" class="add-skill-form">
+                                <input type="text" id="new-skill" placeholder="Enter a skill..." required>
+                                <button type="submit" class="btn btn-primary">Add Skill</button>
+                            </form>
+                            <div id="my-skills" class="skills-list">
+                                <!-- Skills will be loaded here -->
+                            </div>
+                        </div>
+                        <div class="section">
+                            <h3>Learn Requests</h3>
+                            <div id="learn-requests" class="requests-list">
+                                <!-- Learn requests will be loaded here -->
+                            </div>
+                        </div>
+                        <div class="section">
+                            <h3>Shared Contacts</h3>
+                            <div id="shared-contacts" class="contacts-list">
+                                <!-- Shared contacts will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page">
+                <div class="container">
+                    <div class="page-header">
+                        <h1>Skills Dashboard</h1>
+                        <p>Search for skills and discover top-rated professionals</p>
+                    </div>
+                    
+                    <!-- Search Section -->
+                    <div class="search-section">
+                        <div class="search-container">
+                            <div class="search-input-wrapper">
+                                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <input type="text" id="skill-search" placeholder="Search for skills (e.g., JavaScript, Design, Marketing...)" class="search-input">
+                                <button id="clear-search" class="clear-search-btn" style="display: none;">×</button>
+                            </div>
+                            <button id="search-btn" class="btn btn-primary">Search</button>
+                        </div>
+                        <div id="search-suggestions" class="search-suggestions"></div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div id="search-results" class="search-results">
+                        <div id="dashboard-users" class="dashboard-list">
+                            <!-- Default: Top rated users will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Skill Detail Modal -->
+    <div id="skill-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-skill-title"></h3>
+                <button id="close-modal" class="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <div id="modal-skill-experts" class="skill-experts">
+                    <!-- Skill experts will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load the modular application -->
+    <script type="module" src="src/app.js"></script>
+</body>
+</html>
